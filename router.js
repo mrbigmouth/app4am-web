@@ -5,7 +5,10 @@ Router.map(function() {
   , {"path"   : '/'
     ,"waitOn" :
         function() {
-          return Meteor.subscribe("topic");
+          return [
+            Meteor.subscribe("topic")
+          , Meteor.subscribe("news")
+          ]
         }
     }
   );

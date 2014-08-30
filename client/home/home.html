@@ -25,9 +25,14 @@
     </div>
   </div>
 
-  {{#each list}}
-  <div class="row">
-    <div class="col-xs-12">{{this.name}}</div>
+  {{#each news}}
+  <div class="row eachNews">
+    <span class="bg-info topic">
+      {{this.topicName}}
+    </span>
+    <div class="col-xs-12 bg-warning">
+      {{this.text}}
+    </div>
   </div>
   {{/each}}
 </div>
