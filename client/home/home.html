@@ -10,17 +10,25 @@
 </head>
 
 <template name="home">
-  <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3" id="home">
-    <div class="row">
-      <div class="col-xs-12 logo">
-        LOGO
-      </div>
+
+<div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3" id="home">
+
+  <div class="row">
+    <div class="col-xs-12 img">
+      LOGO
     </div>
   </div>
 
-  <ul>
+  <div class="row">
+    <div class="col-xs-12 img">
+      pic of top topic
+    </div>
+  </div>
+
   {{#each list}}
-    <li>{{this.name}}</li>
+  <div class="row">
+    <div class="col-xs-12">{{this.name}}</div>
+  </div>
   {{/each}}
-  </ul>
+</div>
 </template>
