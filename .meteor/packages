@@ -6,4 +6,6 @@
 standard-app-packages
 jquery
 iron:router
+meteorhacks:fast-render
+stylus
 
