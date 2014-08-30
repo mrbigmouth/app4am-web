@@ -1,5 +1,5 @@
 Template.home.helpers(
-  {"list" :
+  {"news" :
       function() {
         var result = [];
         DB.topic.find().forEach(function(doc) {
