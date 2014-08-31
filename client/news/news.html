@@ -1,0 +1,63 @@
+<template name="news">
+<div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3" id="news">
+
+  <div class="row picture">
+    <div class="col-xs-6">
+      <img src="/news.png" alt="新聞圖片" />
+    </div>
+    <div class="col-xs-6">
+      {{#each this.comment}}
+        <div class="col-xs-12">
+          <span class="label label-danger pull-right">{{this}}</span>
+        </div>
+      {{/each}}
+    </div>
+  </div>
+
+  <div class="row score">
+    <div class="col-xs-10">
+      <div class="progress">
+        <div class="{{showScoreClass this.comment}}" role="progressbar" style="{{showScoreStyle this.comment}}">
+          <span>{{showScore this.comment}}</span>
+        </div>
+      </div>
+    </div>
+    <div class="cols-xs-2">
+      客觀程度
+    </div>
+  </div>
+
+  <h1>{{this.title}}</h1>
+
+  <div class="row text-center">
+    <time>新聞日期：{{showTime this.newsTime}}</time>
+    　　　　
+    <author>記者：{{this.author}}</author>
+    　　　　
+    <a href="{{this.sourceUrl}}">原網址</a>
+  </div>
+  <article>
+    {{this.content}}
+  </article>
+  <br />
+  <br />
+  <br />
+  <button class="btn btn-info col-xs-12 text-center showComment">
+    檢舉新聞
+  </button>
+  <div class="col-xs-12 comment" style="display:none;">
+    <button class="{{showClass this.comment "標題殺人"}}" data-comment="標題殺人">
+      標題殺人
+    </button>
+    <button class="{{showClass this.comment "未經察證"}}" data-comment="未經察證">
+      未經察證
+    </button>
+    <button class="{{showClass this.comment "扭曲真相"}}" data-comment="扭曲真相">
+      扭曲真相
+    </button>
+    <button class="{{showClass this.comment "主觀利己"}}" data-comment="主觀利己">
+      主觀利己
+    </button>
+  </div>
+</div>
+</template>

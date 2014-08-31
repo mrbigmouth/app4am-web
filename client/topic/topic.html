@@ -1,0 +1,35 @@
+<template name="topic">
+
+<div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3" id="topic">
+
+  <div class="row">
+    <div class="col-xs-12 img">
+      LOGO
+    </div>
+  </div>
+
+  <ul class="nav nav-tabs" role="tablist">
+    {{#each newspaper this._id}}
+      <li>
+        <a href="javascript:;" class="tabTrigger" role="tab" data-id="{{this.paperId}}">{{ this.name }}</a>
+      </li>
+    {{/each}}
+  </ul>
+
+  <div class="tab-content">
+    {{#each newspaper this._id}}
+      <div class="tab-pane" data-id="{{this.paperId}}">
+        {{#each news this.topicId this.paperId}}
+          <div class="row bg-warning eachNews" data-id="{{this._id._str}}">
+            <h3>{{this.title}}</h3>
+            <span class="{{showScoreClass this.comment}}">
+              {{showScore this.comment}}
+            </span>
+          </div>
+        {{/each}}
+      </div>
+    {{/each}}
+  </div>
+</div>
+
+</template>

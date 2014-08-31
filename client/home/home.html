@@ -9,6 +9,8 @@
   -->
 </head>
 
+<body></body>
+
 <template name="home">
 
 <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3" id="home">
@@ -25,15 +27,27 @@
     </div>
   </div>
 
-  {{#each news}}
-  <div class="row eachNews">
-    <div class="col-xs-12 bg-warning">
+  {{#each topic}}
+  <div class="row bg-info eachTopic" data-topic="{{this.topic}}">
+    <h3>
       {{this.text}}
-    </div>
-    <span class="bg-info topic">
+    </h3>
+    <span class="bg-danger topic">
       {{this.topicName}}
     </span>
   </div>
   {{/each}}
+
+  {{#each news}}
+  <div class="row bg-warning eachNews" data-news="{{this._id._str}}">
+    <h3>
+      {{this.title}}
+    </h3>
+    <span class="{{showScoreClass this.comment}}">
+      {{showScore this.comment}}
+    </span>
+  </div>
+  {{/each}}
 </div>
+
 </template>
