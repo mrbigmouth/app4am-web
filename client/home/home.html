@@ -14,21 +14,18 @@
 <template name="home">
 
 <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3" id="home">
-
-  <div class="row">
-    <div class="col-xs-12 img">
-      LOGO
-    </div>
+  <div class="row logo">
+    <a href="/">
+      <img src="/logo.png" />
+    </a>
   </div>
 
-  <div class="row">
-    <div class="col-xs-12 img">
-      pic of top topic
-    </div>
+  <div class="row picture">
+    <img src="/home.jpg" style="width:640px;" />
   </div>
 
   {{#each topic}}
-  <div class="row bg-info eachTopic" data-topic="{{this.topic}}">
+  <div class="bg-info eachTopic" data-topic="{{this.topic}}">
     <h3>
       {{this.text}}
     </h3>
@@ -39,7 +36,7 @@
   {{/each}}
 
   {{#each news}}
-  <div class="row bg-warning eachNews" data-news="{{this._id._str}}">
+  <div class="bg-warning eachNews" data-news="{{this._id._str}}">
     <h3>
       {{this.title}}
     </h3>
