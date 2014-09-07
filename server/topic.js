@@ -16,5 +16,10 @@ DB.topic.allow(
 
 
 Meteor.publish('topic', function() {
-  return DB.topic.find();
+  var filter =
+        {"sort" :
+            {"$ne" : null
+            }
+        }
+  return DB.topic.find({});
 });

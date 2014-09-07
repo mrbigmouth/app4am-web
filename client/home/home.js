@@ -3,27 +3,31 @@ Template.home.helpers(
   {"topic" :
       function() {
         var result = [];
-        DB.topic.find().forEach(function(doc) {
-          var data =
-              {"topic"     : doc._id._str
-              ,"topicName" : doc.name
-              }
-            , news =
-                DB.news.findOne(
-                  {"topicId" : doc._id}
-                , {"sort"    :
-                      {"updateTime" : -1
-                      }
+        DB.topic
+          .find({},{"sort" : {"sort" : 1}})
+          .forEach(
+            function(doc) {
+              var data =
+                  {"topic"     : doc._id._str
+                  ,"topicName" : doc.name
                   }
-                )
-            ;
+                , news =
+                    DB.news.findOne(
+                      {"topicId" : doc._id}
+                    , {"sort"    :
+                          {"updateTime" : -1
+                          }
+                      }
+                    )
+                ;
 
-          if (news) {
-            topicNews.push(news._id);
-            data.text = news.title;
-            result.push(data);
-          }
-        });
+              if (news) {
+                topicNews.push(news._id);
+                data.text = news.title;
+                result.push(data);
+              }
+            }
+          );
         topicNews = _.compact(topicNews);
         return result;
       }
